@@ -58,12 +58,12 @@ task Compile -depends Init {
 	msbuild /t:build /v:q /nologo /p:configuration=$project_config $source_dir\$project_name.sln
 }
 
-#task UnitTest -depends Compile {
-#	copy_all_assemblies_for_test $unit_test_source_dir $test_dir
-#	exec {
-#		& $xunit_path $unit_test_dll /nunit results-unit.xml
-#	}
-#}
+task UnitTest -depends Compile {
+	copy_all_assemblies_for_test $unit_test_source_dir $test_dir
+	exec {
+		& $xunit_path $unit_test_dll -nunit results-unit.xml
+	}
+}
 
 #task IntegrationTest -depends Compile {
 #	copy_all_assemblies_for_test $integration_test_source_dir $test_dir
