@@ -1,0 +1,1 @@
+powershell.exe -NoProfile -ExecutionPolicy unrestricted -Command "& { Import-Module '.\tools\psake\psake.psm1'; Invoke-psake '.\build.ps1' -task UnitTest,IntegrationTest -parameters @{'project_config'='Debug'}; if ($lastexitcode -ne 0) {write-host "ERROR: $lastexitcode" -fore RED; exit $lastexitcode} }" 
