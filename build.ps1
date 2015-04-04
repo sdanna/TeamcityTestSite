@@ -51,9 +51,9 @@ task Init {
 
 #task Compile -depends CommonAssemblyInfo {	
 task Compile -depends Init {	
-	exec {
-		& $nuget_path restore $source_dir\$project_name.sln
-	}
+	#exec {
+	#	& $nuget_path restore $source_dir\$project_name.sln
+	#}
 	Write-Host "Compiling version: $version"
 	msbuild /t:build /v:q /nologo /p:configuration=$project_config $source_dir\$project_name.sln
 }
