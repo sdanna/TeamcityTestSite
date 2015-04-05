@@ -36,7 +36,7 @@ properties {
 ##################### Tasks ####################################################################
 
 #task default -depends Init, CommonAssemblyInfo, Compile, UnitTest, IntegrationTest
-task default -depends Init, Compile, UnitTest, IntegrationTest
+task default -depends Init, Compile, UnitTest
 
 task Init {	
 	msbuild /t:clean /v:q /nologo /p:configuration=$project_config $source_dir\$project_name.sln
